@@ -40,8 +40,9 @@ export default class MovieList extends Component {
         }
 
         return (
-            <div>
-                {movies}
+            <div className="container d-flex flex-column bg-dark">
+                <h1 className="text-light mb-3">Top Movies</h1>
+                <div>{movies}</div>
             </div>
         )
     }

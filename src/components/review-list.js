@@ -10,7 +10,7 @@ export default class ReviewList extends Component {
         }
 
         return (
-            <div>
+            <div className="col-12">
                 {reviews}
             </div>
         )

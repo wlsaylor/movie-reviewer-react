@@ -11,7 +11,7 @@ export default class movie extends Component {
     }
 
     reviewForm = (reviewContent, reviewRating) => {
-        const randomId = Math.floor(Math.random() * 123903498);
+        const randomId = Math.floor(Math.random() * 100000000);
         const newReview = {
             id: randomId,
             reviewContent,
@@ -22,18 +22,21 @@ export default class movie extends Component {
 
     render() {
         return (
-            <div className="card">
-                <div className="card-header m-1">
+            <div className="card col-12 bg-dark text-light border border-warning">
+                <div className="card-header mb-1 row">
                     <h2>{this.props.title}</h2>
                 </div>
-                <div className="card-body m-1">
-                    <img src={this.props.img} alt={this.props.title} width="300"/>
-                    <p>{this.props.imdbRating}</p>
-                    <a href={this.props.imdbLink}>{this.props.imdbLink}</a>
-                    <p>{this.props.description}</p>
+                <div className="card-body m-1 p-2 row">
+                    <div className="col-xl-4  d-flex justify-content-center text-center">
+                        <img src={this.props.img} alt={this.props.title} width="350"/>
+                    </div>
+                    <div className="col-xl-7 m-3 p-1">
+                        <p>{this.props.description}</p>
+                        <p className="text-warning">imdbRating: {this.props.imdbRating} <a href={this.props.imdbLink}>{this.props.imdbLink}</a></p>
+                        <ReviewList reviews={this.state.reviews}/>
+                    </div>
                 </div>
                 <div className="card-footer m-1">
-                    <ReviewList reviews={this.state.reviews}/>
                     <ReviewForm reviewForm={this.reviewForm}/>
                 </div>
             </div>
